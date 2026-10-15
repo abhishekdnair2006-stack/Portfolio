@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abhishek D Nair — Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff4d6;--ink:#111;--paper:#fffdf6;--y:#ffd23f;--p:#ff9ccf;--b:#7d9bff;--g:#52e0a1;--rd:#ff5a47;--on:#111;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14120e;--ink:#fff4d6;--paper:#201d16;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14120e;--ink:#fff4d6;--paper:#201d16}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Archivo',system-ui,sans-serif;line-height:1.45;overflow-x:hidden;background-image:radial-gradient(color-mix(in srgb,var(--ink) 13%,transparent) 1.3px,transparent 1.3px);background-size:22px 22px}
+a{color:inherit;text-decoration:none}ul{list-style:none}
+.mono{font-family:'Space Mono',monospace}
+.w{max-width:1240px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.bx{border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);border-radius:18px}
+.nav{position:fixed;z-index:50;top:calc(12px + env(safe-area-inset-top,0px));left:50%;transform:translateX(-50%);width:min(1160px,calc(100% - 24px));display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 8px 8px 10px;background:var(--paper);border-radius:99px;font-weight:800;text-transform:uppercase;font-size:.85rem}
+.lo{background:var(--y);color:#111;border:3px solid var(--ink);border-radius:99px;padding:6px 16px;font-weight:900;font-size:1.05rem;white-space:nowrap}
+.nav ul{display:flex;gap:6px}.nav ul a{padding:8px 14px;border-radius:99px;transition:.15s}.nav ul a:hover{background:var(--p);color:#111}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border:3px solid var(--ink);border-radius:99px;font-weight:900;text-transform:uppercase;font-size:.9rem;background:var(--paper);color:var(--ink);box-shadow:5px 5px 0 var(--ink);transition:.12s;cursor:pointer;font-family:inherit}
+.btn:hover{transform:translate(-3px,-3px) rotate(-1.5deg);box-shadow:8px 8px 0 var(--ink)}.btn:active{transform:translate(4px,4px);box-shadow:1px 1px 0 var(--ink)}
+.btn.y{background:var(--y);color:#111}
+@media(max-width:760px){.nav ul li:nth-child(n+3){display:none}.nav ul a{padding:8px 10px}}
+/* hero */
+.hero{padding:130px 0 70px}
+.hg{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+@media(max-width:900px){.hg{grid-template-columns:1fr}}
+.hi{font-weight:800;text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px;display:inline-block;background:var(--g);color:#111;border:3px solid var(--ink);padding:4px 14px;border-radius:99px;transform:rotate(-2deg)}
+h1{font-size:clamp(2.8rem,7.6vw,6.6rem);line-height:.95;font-weight:900;font-stretch:118%;text-transform:uppercase;letter-spacing:-.03em}
+.hl{display:inline-block;background:var(--y);color:#111;padding:0 .14em;border:4px solid var(--ink);box-shadow:7px 7px 0 var(--ink);transform:rotate(-2.5deg);margin:6px 0 10px}
+h1 u{text-decoration:none;background:linear-gradient(transparent 62%,var(--p) 62% 92%,transparent 92%);color:inherit}
+.lead{font-size:1.15rem;max-width:44ch;margin:24px 0 30px;font-weight:500}
+.btns{display:flex;gap:16px;flex-wrap:wrap}
+.stage{position:relative;min-height:540px}
+@media(max-width:900px){.stage{min-height:480px}}
+.mas{position:absolute;left:50%;top:52%;width:min(320px,70%);transform:translate(-50%,-50%);cursor:pointer;animation:fl 4s ease-in-out infinite;z-index:2}
+@keyframes fl{50%{transform:translate(-50%,-54%)}}
+.mas svg{display:block;width:100%;overflow:visible}
+.bub{position:absolute;left:50%;top:-34px;transform:translateX(-30%);background:var(--paper);color:var(--ink);border:3px solid var(--ink);border-radius:16px;padding:8px 14px;font:700 .8rem 'Space Mono',monospace;white-space:nowrap;box-shadow:4px 4px 0 var(--ink);animation:pop .35s}
+.bub::after{content:"";position:absolute;left:30px;bottom:-12px;width:16px;height:16px;background:var(--paper);border-right:3px solid var(--ink);border-bottom:3px solid var(--ink);transform:rotate(45deg)}
+@keyframes pop{from{transform:translateX(-30%) scale(.6);opacity:0}}
+.stk{position:absolute;z-index:3;padding:10px 18px;border:3px solid var(--ink);border-radius:14px;font-weight:900;text-transform:uppercase;box-shadow:4px 4px 0 var(--ink);cursor:grab;user-select:none;touch-action:none;color:#111;transform:rotate(var(--r));transition:box-shadow .15s,scale .15s;white-space:nowrap}
+.stk.drag{cursor:grabbing;scale:1.1;box-shadow:10px 10px 0 var(--ink)}
+.badge{position:absolute;right:2%;bottom:4%;width:128px;height:128px;z-index:1}
+.badge svg{width:100%;height:100%;animation:spin 14s linear infinite}.badge text{fill:var(--ink);font:800 17px 'Archivo'}
+.badge b{position:absolute;inset:0;display:grid;place-items:center;font-size:2rem}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* tape */
+.tape{background:#111;color:var(--y);font-weight:900;font-size:1.3rem;text-transform:uppercase;white-space:nowrap;overflow:hidden;padding:12px 0;width:104vw;margin-left:-2vw;border-block:3px solid var(--ink);position:relative;z-index:5}
+.tape div{display:inline-block;animation:mq 34s linear infinite}.tape span{padding:0 22px}
+.tape.t2{background:var(--y);color:#111;transform:rotate(1.6deg)}.tape.t1{transform:rotate(-1.6deg)}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* sections */
+section{padding:clamp(70px,9vw,120px) 0}
+.sh{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:40px}
+h2{font-size:clamp(2.6rem,7vw,5.6rem);line-height:.92;font-weight:900;font-stretch:118%;text-transform:uppercase;letter-spacing:-.03em}
+.tag{background:var(--p);color:#111;border:3px solid var(--ink);border-radius:99px;padding:5px 16px;font-weight:800;text-transform:uppercase;font-size:.8rem;transform:rotate(3deg)}
+.ag{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:start}
+@media(max-width:900px){.ag{grid-template-columns:1fr}}
+.ag p{font-size:1.25rem;margin-bottom:20px;font-weight:500}
+mark{background:var(--y);color:#111;padding:0 .2em;border-radius:6px}mark.p{background:var(--p)}mark.g{background:var(--g)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.chip{border:3px solid var(--ink);border-radius:99px;padding:7px 16px;font-weight:800;color:#111;transform:rotate(var(--r,0deg));transition:.15s;cursor:default}.chip:hover{transform:rotate(0) scale(1.12) translateY(-3px);box-shadow:4px 4px 0 var(--ink)}
+.id{background:var(--paper);overflow:hidden;transform:rotate(2deg)}
+.id .hd{background:#111;color:var(--y);padding:12px 18px;font-weight:900;text-transform:uppercase;display:flex;justify-content:space-between;border-bottom:3px solid var(--ink)}
+.id dl{padding:8px 18px}.id .r{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:2px dashed color-mix(in srgb,var(--ink) 35%,transparent)}
+.id dt{font:700 .72rem 'Space Mono',monospace;text-transform:uppercase;opacity:.7}.id dd{font-weight:800;text-align:right}
+.id .bc{height:42px;margin:14px 18px 18px;background:repeating-linear-gradient(90deg,var(--ink) 0 3px,transparent 3px 6px,var(--ink) 6px 7px,transparent 7px 12px)}
+/* projects */
+.stack{position:relative}
+.pc{position:sticky;top:calc(96px + var(--i)*26px);margin-bottom:10vh;color:#111;padding:clamp(22px,3vw,40px);display:grid;grid-template-columns:1.1fr .9fr;gap:30px;min-height:430px;box-shadow:8px 8px 0 var(--ink)}
+.pc:last-child{margin-bottom:0}
+@media(max-width:860px){.pc{position:static;grid-template-columns:1fr;margin-bottom:28px}}
+.num{font-size:clamp(4rem,10vw,8rem);font-weight:900;line-height:.8;color:transparent;-webkit-text-stroke:3px #111;font-stretch:125%}
+.pc h3{font-size:clamp(2.2rem,5vw,4rem);text-transform:uppercase;font-weight:900;font-stretch:118%;line-height:.95;letter-spacing:-.03em;margin:14px 0 6px}
+.pc .d{font:700 .78rem 'Space Mono',monospace;text-transform:uppercase;margin-bottom:12px}
+.pc p{font-weight:500;margin-bottom:16px;max-width:52ch}
+.pc .chip{background:#fffdf6;border-color:#111;--r:0deg}
+.ill{background:#fffdf6;border:3px solid #111;border-radius:16px;display:grid;place-items:center;padding:14px;min-height:240px}
+.ill svg{width:100%;max-width:340px;height:auto}
+.wh{transform-origin:120px 95px;animation:spin 18s linear infinite}
+/* skills */
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:980px){.sg{grid-template-columns:1fr 1fr}}@media(max-width:560px){.sg{grid-template-columns:1fr}}
+.sk{padding:22px;background:var(--paper)}.sk h4{display:inline-block;background:#111;color:var(--y);padding:4px 12px;border-radius:8px;text-transform:uppercase;margin-bottom:14px;font-weight:900}
+.sk .chips{margin-top:0}
+/* journey */
+.jg{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+@media(max-width:760px){.jg{grid-template-columns:1fr}}
+.lv{padding:26px;color:#111;position:relative}.lv .l{font:700 .75rem 'Space Mono',monospace;text-transform:uppercase;background:#111;color:var(--y);padding:4px 10px;border-radius:6px;display:inline-block;margin-bottom:14px}
+.lv h4{font-size:1.7rem;line-height:1.05;text-transform:uppercase;font-weight:900;margin-bottom:6px}.lv p{font-weight:500}.lv .sc{position:absolute;right:20px;top:18px;font-size:3rem;font-weight:900;line-height:1}
+.ach{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+@media(max-width:760px){.ach{grid-template-columns:1fr}}
+.ach .bx{padding:20px;background:var(--paper)}.ach b{display:block;font-size:1.15rem;line-height:1.15;font-weight:900;text-transform:uppercase;margin:8px 0 4px}.ach .mono{font-size:.72rem;font-weight:700}
+.ach .st{font-size:2rem}
+/* contact */
+.ct{background:var(--y);color:#111;padding:clamp(26px,5vw,60px);display:grid;grid-template-columns:1.1fr .9fr;gap:40px;box-shadow:10px 10px 0 var(--ink)}
+@media(max-width:900px){.ct{grid-template-columns:1fr}}
+.ct h2{margin-bottom:26px}
+.mail{display:block;font-size:clamp(1.2rem,3.4vw,2.2rem);font-weight:900;overflow-wrap:anywhere;background:#fffdf6;border:3px solid #111;border-radius:14px;padding:14px 18px;box-shadow:5px 5px 0 #111;margin-bottom:18px;transition:.15s}.mail:hover{background:var(--p);transform:rotate(-1deg)}
+.ct .btn{background:#fffdf6;color:#111;border-color:#111;box-shadow:5px 5px 0 #111}.ct .btn.k{background:#111;color:var(--y)}.ct .btn.wa{background:#25d366;color:#111}.ct .btn.li{background:#7d9bff;color:#111}
+form{display:grid;gap:14px;background:#fffdf6;border:3px solid #111;border-radius:16px;padding:22px;box-shadow:6px 6px 0 #111}
+label{font:700 .72rem 'Space Mono',monospace;text-transform:uppercase}
+input,textarea,select{width:100%;margin-top:6px;border:3px solid #111;border-radius:10px;padding:12px;font:600 1rem 'Archivo',sans-serif;background:#fff;color:#111}
+input:focus,textarea:focus,select:focus{outline:0;background:var(--y)}textarea{min-height:110px;resize:vertical}
+.fs{font-weight:800;min-height:1.3em;font-size:.9rem}.fs.ok{color:#0b7a4a}.fs.bad{color:#d6291a}
+footer{background:#111;color:var(--y);margin-top:80px;padding:28px 0;font-weight:800;text-transform:uppercase}
+footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}footer a:hover{text-decoration:underline}
+.pgb{position:fixed;top:0;left:0;height:6px;width:0;background:var(--rd);border-bottom:2px solid var(--ink);z-index:80}
+.dock{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;gap:8px;align-items:center;padding:8px 12px;background:var(--paper);border-radius:99px}
+.dock i{width:22px;height:22px;border-radius:50%;border:3px solid var(--ink);cursor:pointer;transition:.15s}.dock i:hover{transform:scale(1.3)}
+.dock button{background:none;border:0;color:var(--ink);font-size:1.3rem;cursor:pointer;line-height:1}
+.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:#111;color:var(--y);padding:12px 20px;border-radius:99px;font-weight:800;z-index:90;border:3px solid var(--ink);animation:pop .3s;max-width:90vw;text-align:center}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}@media(max-width:760px){.nums{grid-template-columns:1fr 1fr}}
+.nums .bx{padding:22px;color:#111;text-align:center}.nums b{display:block;font-size:clamp(3rem,7vw,5.5rem);line-height:.9;font-weight:900;font-stretch:125%}.nums span{font:700 .75rem 'Space Mono',monospace;text-transform:uppercase}
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}@media(max-width:980px){.svc{grid-template-columns:1fr 1fr}}@media(max-width:560px){.svc{grid-template-columns:1fr}}
+.fc{perspective:900px;height:270px;cursor:pointer}.fc>div{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.3,1.3,.5,1)}.fc.f>div,.fc:hover>div{transform:rotateY(180deg)}
+.fc .a,.fc .b{position:absolute;inset:0;backface-visibility:hidden;padding:22px;color:#111;display:flex;flex-direction:column;justify-content:space-between;border-radius:15px}.fc .b{transform:rotateY(180deg)}
+.fc .a span{font-size:3.4rem}.fc h4{font-size:1.5rem;text-transform:uppercase;font-weight:900;line-height:1}.fc p{font-weight:600;font-size:.95rem}.fc small{font:700 .7rem 'Space Mono',monospace;text-transform:uppercase}
+.flt{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}.flt .chip{cursor:pointer;background:var(--paper);--r:0deg}.flt .chip.on{background:var(--y);color:#111}.sk .chip{cursor:pointer}
+.pc{transition:opacity .4s,filter .4s}.pc.dim{opacity:.16;filter:grayscale(1);pointer-events:none}
+.pl{display:grid;grid-template-columns:1fr 1fr;gap:26px}@media(max-width:900px){.pl{grid-template-columns:1fr}}
+.term{background:#111;color:#52e0a1;font:500 .86rem/1.55 'Space Mono',monospace;height:470px;display:flex;flex-direction:column;overflow:hidden}
+.term .bar{background:var(--y);color:#111;padding:9px 14px;font-weight:700;border-bottom:3px solid var(--ink)}
+.term pre{flex:1;overflow:auto;padding:14px;white-space:pre-wrap;word-break:break-word;font:inherit}.term pre b{color:var(--y)}
+.term form{display:flex;gap:8px;border:0;border-top:2px solid #333;border-radius:0;padding:10px 14px;box-shadow:none;background:#111}
+.term input,.term input:focus{margin:0;border:0;background:transparent;color:#fff;padding:0;border-radius:0;font:inherit}
+.tw{padding:18px;text-align:center}.tw canvas{background:var(--paper);border:3px solid var(--ink);border-radius:10px;max-width:100%;touch-action:none}
+.tw .st{display:flex;justify-content:space-around;font:700 .8rem 'Space Mono',monospace;margin-bottom:10px;text-transform:uppercase}.tw .btns{justify-content:center;gap:10px;margin-top:14px}.tw .btn{padding:10px 16px;box-shadow:3px 3px 0 var(--ink)}
+.prc{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}@media(max-width:980px){.prc{grid-template-columns:1fr 1fr}}@media(max-width:560px){.prc{grid-template-columns:1fr}}
+.prc .bx{padding:24px;color:#111;transition:.2s}.prc .bx:hover{transform:translate(-4px,-4px) rotate(-1deg);box-shadow:10px 10px 0 var(--ink)}
+.prc b{font-size:3.4rem;font-weight:900;line-height:1;-webkit-text-stroke:3px #111;color:transparent;display:block}.prc h4{font-size:1.6rem;text-transform:uppercase;font-weight:900;margin:8px 0}.prc p{font-weight:500}
+.ln2{display:grid;gap:14px}.ln2 .bx{padding:18px 22px;background:var(--paper);display:flex;justify-content:space-between;gap:14px;align-items:center;transition:.2s}.ln2 .bx:hover{background:var(--y);color:#111;transform:translateX(8px)}.ln2 h4{text-transform:uppercase;font-weight:900;font-size:1.3rem}.ln2 p{font-weight:500;opacity:.85}.ln2 span{font-size:1.6rem}
+.rs .bx{background:var(--paper);padding:clamp(22px,4vw,44px)}.rs h3{text-transform:uppercase;font-weight:900;font-size:1rem;background:#111;color:var(--y);display:inline-block;padding:3px 12px;border-radius:8px;margin:24px 0 10px}.rs .bx>h3:first-of-type{margin-top:0}
+.rs li{padding:6px 0;font-weight:500}.rs .tp{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-weight:800;margin-top:10px}.rs p{font-weight:500}.rs .hd2{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:flex-start}.rs .hd2 h4{font-size:clamp(1.8rem,4vw,3rem);text-transform:uppercase;font-weight:900;line-height:1}
+@media print{body *{visibility:hidden}#resume,#resume *{visibility:visible}#resume{position:absolute;left:0;top:0;width:100%}.rs .bx{box-shadow:none}.rs .btn{display:none}}
+.rv{opacity:0;transform:translateY(30px) scale(.97);transition:opacity .6s,transform .6s cubic-bezier(.3,1.4,.5,1)}.rv.in{opacity:1;transform:none}
+/* project demos */
+.dtabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.dtab{border:3px solid var(--ink);border-radius:99px;padding:9px 18px;font:900 .85rem 'Archivo',sans-serif;text-transform:uppercase;background:var(--paper);color:var(--ink);cursor:pointer;transition:.15s}.dtab:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}.dtab.on{background:var(--y);color:#111;box-shadow:4px 4px 0 var(--ink)}
+.dm{background:var(--paper);overflow:hidden}
+.dbar{background:#111;color:var(--y);padding:10px 16px;display:flex;gap:12px;align-items:center;border-bottom:3px solid var(--ink);font:700 .78rem 'Space Mono',monospace;text-transform:uppercase}
+.ddots{display:flex;gap:6px}.ddots i{width:12px;height:12px;border-radius:50%;background:var(--y);display:block}.ddots i:nth-child(2){background:var(--p)}.ddots i:nth-child(3){background:var(--g)}
+.dsub{display:flex;flex-wrap:wrap;gap:8px;padding:16px clamp(16px,3vw,28px) 0}
+.df{border:3px solid var(--ink);border-radius:99px;padding:5px 14px;font:800 .82rem 'Archivo',sans-serif;background:var(--paper);color:var(--ink);cursor:pointer}.df.on{background:var(--y);color:#111}
+.dpg{display:grid;grid-template-columns:.95fr 1.05fr;gap:24px;padding:clamp(16px,3vw,28px);animation:pop2 .3s}
+@keyframes pop2{from{opacity:0;transform:scale(.97)}}
+@media(max-width:760px){.dpg{grid-template-columns:1fr}}
+.dpg h3{font-size:clamp(1.6rem,3.6vw,2.4rem);font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.02em;margin-bottom:10px}
+.dpg p{font-weight:500;margin-bottom:14px}
+.dpg .chips{margin-top:0;gap:8px}.dpg .chip{padding:5px 14px;font-size:.85rem;background:var(--y);--r:0deg}.dpg .chip:nth-child(2n){background:var(--p)}.dpg .chip:nth-child(3n){background:var(--g)}.dpg .chip:nth-child(4n){background:var(--b)}
+.dd{border:3px solid var(--ink);border-radius:16px;background:var(--bg);padding:16px;display:flex;flex-direction:column;gap:12px}
+.dlbl{font:700 .72rem 'Space Mono',monospace;text-transform:uppercase}
+.drow{display:flex;gap:10px;flex-wrap:wrap}.drow>*{flex:1 1 120px}
+.dd input,.dd select,.dd textarea{margin-top:0;padding:9px 10px;font-size:.92rem}
+.dbtn{border:3px solid var(--ink);border-radius:99px;padding:10px 20px;font:900 .85rem 'Archivo',sans-serif;text-transform:uppercase;background:#111;color:var(--y);cursor:pointer;box-shadow:4px 4px 0 var(--ink);transition:.12s;align-self:flex-start}.dbtn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}.dbtn.s{padding:4px 12px;font-size:.72rem;box-shadow:2px 2px 0 var(--ink)}
+.derr{color:#d6291a;font-weight:700;font-size:.8rem;min-height:1em}
+.dok{display:none;background:var(--g);color:#111;border:3px solid var(--ink);border-radius:12px;padding:10px 14px;font-weight:800}.dok.show{display:block;animation:pop2 .3s}
+.dmets{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.dmets div{border:3px solid var(--ink);border-radius:12px;padding:10px;text-align:center;color:#111;background:var(--y)}.dmets div:nth-child(2){background:var(--p)}.dmets div:nth-child(3){background:var(--g)}.dmets b{display:block;font-size:1.7rem;font-weight:900;line-height:1}.dmets span{font:700 .6rem 'Space Mono',monospace;text-transform:uppercase}
+.dlist{display:flex;flex-direction:column;gap:8px;max-height:220px;overflow:auto;padding-right:2px}
+.dit{border:3px solid var(--ink);border-radius:12px;background:var(--paper);padding:8px 12px;display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:700;font-size:.9rem;animation:pop2 .3s}
+.dit small{display:block;font:700 .68rem 'Space Mono',monospace;opacity:.75}
+.dst{font:800 .68rem 'Space Mono',monospace;text-transform:uppercase;border:2px solid var(--ink);border-radius:99px;padding:2px 10px;background:var(--y);color:#111;white-space:nowrap}
+.dempty{font-weight:700;opacity:.7;padding:8px 2px}
+.drides{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.dride{border:3px solid var(--ink);border-radius:12px;padding:10px 6px;text-align:center;font-weight:800;font-size:.82rem;cursor:pointer;color:#111;transition:.15s;background:var(--y)}.dride:nth-child(2){background:var(--p)}.dride:nth-child(3){background:var(--g)}.dride.on{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}.dride svg{display:block;margin:0 auto 4px;width:36px;height:36px}
+.dqty{display:flex;align-items:center;gap:10px;font-weight:900}.dqty button{width:34px;height:34px;border:3px solid var(--ink);border-radius:50%;background:var(--paper);color:var(--ink);font:900 1.1rem 'Archivo',sans-serif;cursor:pointer}
+.dtiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.dtile{border:3px solid var(--ink);border-radius:12px;height:64px;display:grid;place-items:center;font-weight:800;font-size:.8rem;color:#111;transition:.25s}.dtile.hide{opacity:.12;transform:scale(.9)}
+.dcnt{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.dcnt div{border:3px solid var(--ink);border-radius:12px;padding:12px;text-align:center;color:#111;background:var(--y)}.dcnt div:nth-child(2){background:var(--p)}.dcnt div:nth-child(3){background:var(--g)}.dcnt b{display:block;font-size:1.8rem;font-weight:900;line-height:1}.dcnt span{font:700 .62rem 'Space Mono',monospace;text-transform:uppercase}
+.dd details{border:3px solid var(--ink);border-radius:12px;background:var(--paper);padding:10px 14px}.dd summary{font-weight:900;text-transform:uppercase;font-size:.85rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between}.dd summary::after{content:"+";font-size:1.2rem;line-height:1}.dd details[open] summary::after{content:"−"}.dd details[open]{background:var(--y);color:#111}.dd details p{margin:8px 0 0;font-size:.9rem}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.mas,.badge svg,.tape div,.wh{animation:none}}
+</style>
+</head>
+<body>
+<nav class="nav bx" style="box-shadow:5px 5px 0 var(--ink)">
+  <a class="lo" href="#top">AN ✦ DEV</a>
+  <ul><li><a href="#about">About</a></li><li><a href="#work">Work</a></li><li><a href="#demos">Demos</a></li><li><a href="#skills">Skills</a></li><li><a href="#play">Play</a></li><li><a href="#resume">Resume</a></li></ul>
+  <a class="btn y" href="#contact" style="padding:9px 18px;box-shadow:3px 3px 0 var(--ink)">Hire me!</a>
+</nav>
+
+<header class="hero" id="top"><div class="w hg">
+  <div>
+    <span class="hi mono">★ Computer science graduate</span>
+    <h1>Hi, I'm<br><span class="hl">Abhishek</span><br>I build <u>web things</u>.</h1>
+    <p class="lead">Developer from Kerala — Python, PHP, MySQL and databases that behave. Looking for my first entry-level role in IT.</p>
+    <div class="btns"><a class="btn y" href="#work">See my work ↓</a><a class="btn" href="#contact">Say hello ☺</a></div>
+  </div>
+  <div class="stage" id="stage">
+    <div class="mas" id="mas"><div class="bub" id="bub">Hello, World!</div>
+      <svg viewBox="0 0 300 300" aria-label="Friendly mascot">
+        <line x1="150" y1="42" x2="150" y2="8" stroke="#111" stroke-width="6" stroke-linecap="round"/><circle cx="150" cy="6" r="11" fill="#ff9ccf" stroke="#111" stroke-width="6"/>
+        <rect x="88" y="262" width="46" height="26" rx="12" fill="#ff5a47" stroke="#111" stroke-width="6"/><rect x="166" y="262" width="46" height="26" rx="12" fill="#ff5a47" stroke="#111" stroke-width="6"/>
+        <path d="M58 232 C16 150 44 52 150 42 C256 32 292 132 250 222 C228 276 92 284 58 232Z" fill="#ffd23f" stroke="#111" stroke-width="7"/>
+        <circle cx="92" cy="180" r="15" fill="#ff9ccf" opacity=".8"/><circle cx="208" cy="180" r="15" fill="#ff9ccf" opacity=".8"/>
+        <circle cx="112" cy="128" r="28" fill="#fff" stroke="#111" stroke-width="6"/><circle cx="188" cy="128" r="28" fill="#fff" stroke="#111" stroke-width="6"/>
+        <circle class="pu" data-cx="112" data-cy="128" cx="112" cy="128" r="12" fill="#111"/><circle class="pu" data-cx="188" data-cy="128" cx="188" cy="128" r="12" fill="#111"/>
+        <path d="M116 188 Q150 222 184 188" fill="#ff5a47" stroke="#111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg></div>
+    <span class="stk" style="left:2%;top:8%;--r:-8deg;background:var(--b)">CS grad 🎓</span>
+    <span class="stk" style="right:2%;top:10%;--r:6deg;background:var(--p)">Python 🐍</span>
+    <span class="stk" style="left:0;top:48%;--r:5deg;background:var(--g)">MySQL</span>
+    <span class="stk" style="right:6%;top:42%;--r:-6deg;background:var(--y)">PHP</span>
+    <span class="stk" style="left:8%;bottom:6%;--r:-4deg;background:var(--y)">Kerala 🌴</span>
+    <span class="stk" style="left:38%;bottom:-2%;--r:3deg;background:var(--rd)">Django</span>
+    <div class="badge"><svg viewBox="0 0 200 200"><defs><path id="cp" d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0"/></defs><text><textPath href="#cp" textLength="470" lengthAdjust="spacing">OPEN TO WORK ✦ ENTRY-LEVEL ✦ KERALA ✦ </textPath></text></svg><b>✺</b></div>
+  </div>
+</div></header>
+
+<div class="tape t1" data-t="Web development ✦ Databases ✦ Python ✦ PHP ✦ Problem solving ✦ "><div></div></div>
+
+<section id="about"><div class="w">
+  <div class="sh rv"><h2>About me</h2><span class="tag">01</span></div>
+  <div class="ag">
+    <div class="rv">
+      <p>I'm a <mark>motivated, detail-oriented developer</mark> seeking an <mark class="p">entry-level opportunity</mark> in the IT industry.</p>
+      <p>I'm skilled in <mark class="g">programming, web development, database management</mark> and system troubleshooting, with hands-on project experience in Python, PHP, SQL, MySQL, HTML, CSS and JavaScript.</p>
+      <p>A quick learner with strong problem-solving, communication and teamwork abilities — eager to contribute and grow in a professional IT environment.</p>
+      <p>I enjoy moving between <mark>logic, interfaces, databases</mark>, and the small decisions that make software easier to understand. My work is shaped by <mark class="p">learning in public, testing ideas quickly</mark>, and staying close to the problem until the product feels clear.</p>
+      <div class="chips"><span class="chip" style="--r:-3deg;background:var(--y)">Problem Solving</span><span class="chip" style="--r:2deg;background:var(--p)">Team Collaboration</span><span class="chip" style="--r:-2deg;background:var(--g)">Analytical Thinking</span><span class="chip" style="--r:3deg;background:var(--b)">Quick Learner</span></div>
+    </div>
+    <div class="id bx rv"><div class="hd"><span>Developer ID</span><span>★</span></div>
+      <dl><div class="r"><dt>Name</dt><dd>Abhishek D Nair</dd></div><div class="r"><dt>Class</dt><dd>CS graduate · Developer</dd></div><div class="r"><dt>Degree</dt><dd>BCA · Santhigiri College</dd></div><div class="r"><dt>Base</dt><dd>Muvattupuzha, Kerala</dd></div><div class="r"><dt>Speaks</dt><dd>English · Malayalam · Hindi</dd></div><div class="r"><dt>Status</dt><dd style="color:#12a05f">● Open to work</dd></div></dl>
+      <div class="bc"></div></div>
+  </div>
+</div></section>
+
+<section style="padding:10px 0 30px"><div class="w nums">
+<div class="bx rv" style="background:var(--y)"><b data-n="4">0</b><span>Projects built</span></div>
+<div class="bx rv" style="background:var(--p)"><b data-n="6">0</b><span>Programming languages</span></div>
+<div class="bx rv" style="background:var(--g)"><b data-n="3">0</b><span>Certifications</span></div>
+<div class="bx rv" style="background:var(--b)"><b data-n="3">0</b><span>Spoken languages</span></div>
+</div></section>
+
+<section id="what" style="padding-top:50px"><div class="w">
+  <div class="sh rv"><h2>What I do</h2><span class="tag">★</span></div>
+  <div class="svc">
+    <div class="fc rv" onclick="this.classList.toggle('f')"><div><div class="a bx" style="background:var(--y)"><span>🌐</span><h4>Web development</h4><small>Tap / hover to flip ↻</small></div><div class="b bx" style="background:var(--paper);color:var(--ink)"><h4>Web development</h4><p>HTML, CSS, JavaScript, Bootstrap and AJAX front-ends, wired to PHP or Django back-ends.</p></div></div></div>
+    <div class="fc rv" onclick="this.classList.toggle('f')"><div><div class="a bx" style="background:var(--p)"><span>🗄️</span><h4>Database management</h4><small>Tap / hover to flip ↻</small></div><div class="b bx" style="background:var(--paper);color:var(--ink)"><h4>Databases</h4><p>Designing and managing SQL and MySQL databases — beneficiary records, reservations and applications kept in order.</p></div></div></div>
+    <div class="fc rv" onclick="this.classList.toggle('f')"><div><div class="a bx" style="background:var(--g)"><span>🐍</span><h4>Programming &amp; logic</h4><small>Tap / hover to flip ↻</small></div><div class="b bx" style="background:var(--paper);color:var(--ink)"><h4>Programming</h4><p>Python, C, C++, Java and JavaScript — from game logic like Tetris to everyday problem solving.</p></div></div></div>
+    <div class="fc rv" onclick="this.classList.toggle('f')"><div><div class="a bx" style="background:var(--b)"><span>🛠️</span><h4>Troubleshooting</h4><small>Tap / hover to flip ↻</small></div><div class="b bx" style="background:var(--paper);color:var(--ink)"><h4>Troubleshooting</h4><p>Methodical system troubleshooting and debugging with an analytical, problem-solving mindset.</p></div></div></div>
+  </div>
+</div></section>
+
+<section id="work" style="padding-top:40px"><div class="w">
+  <div class="sh rv"><h2>Things I built</h2><span class="tag">02</span></div>
+  <div class="flt rv" id="flt"></div>
+  <div class="stack">
+    <article class="pc bx" style="--i:0;background:var(--b)" data-t="python django html css javascript mysql sql">
+      <div><span class="num">01</span><h3>MerchCo</h3><div class="d">Digital Financial Welfare Management System · 11/2025 – 01/2026</div>
+        <p>A secure web-based system to manage financial welfare schemes, beneficiary records and application processes, streamlining data management through a centralized digital platform.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Django</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">MySQL</span></div></div>
+      <div class="ill"><svg viewBox="0 0 240 180"><rect x="14" y="14" width="212" height="152" rx="10" fill="#fff" stroke="#111" stroke-width="4"/><rect x="34" y="104" width="30" height="46" fill="#7d9bff" stroke="#111" stroke-width="3"/><rect x="76" y="78" width="30" height="72" fill="#ff9ccf" stroke="#111" stroke-width="3"/><rect x="118" y="92" width="30" height="58" fill="#52e0a1" stroke="#111" stroke-width="3"/><rect x="160" y="52" width="30" height="98" fill="#ffd23f" stroke="#111" stroke-width="3"/><circle cx="196" cy="40" r="20" fill="#ffd23f" stroke="#111" stroke-width="4"/><text x="196" y="47" text-anchor="middle" font-size="20" font-weight="900" font-family="Archivo">₹</text></svg></div>
+    </article>
+    <article class="pc bx" style="--i:1;background:var(--p)" data-t="php mysql sql html css ajax">
+      <div><span class="num">02</span><h3>Playnest</h3><div class="d">Online Park Booking System · 08/2024 – 05/2025</div>
+        <p>An online park ride booking platform with reservation management, user interaction and database integration, built around a user-friendly booking flow for efficient ride reservations.</p>
+        <div class="chips"><span class="chip">PHP</span><span class="chip">MySQL</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">AJAX</span></div></div>
+      <div class="ill"><svg viewBox="0 0 240 180"><path d="M120 95 L82 168 H158Z" fill="#ffd23f" stroke="#111" stroke-width="4" stroke-linejoin="round"/><g class="wh"><circle cx="120" cy="95" r="60" fill="none" stroke="#111" stroke-width="4"/><path d="M60 95H180M120 35V155M77.6 52.6L162.4 137.4M162.4 52.6L77.6 137.4" stroke="#111" stroke-width="3"/><g stroke="#111" stroke-width="3"><circle cx="180" cy="95" r="11" fill="#ff5a47"/><circle cx="162.4" cy="137.4" r="11" fill="#7d9bff"/><circle cx="120" cy="155" r="11" fill="#52e0a1"/><circle cx="77.6" cy="137.4" r="11" fill="#ffd23f"/><circle cx="60" cy="95" r="11" fill="#ff5a47"/><circle cx="77.6" cy="52.6" r="11" fill="#7d9bff"/><circle cx="120" cy="35" r="11" fill="#52e0a1"/><circle cx="162.4" cy="52.6" r="11" fill="#ffd23f"/></g></g><circle cx="120" cy="95" r="9" fill="#111"/></svg></div>
+    </article>
+    <article class="pc bx" style="--i:2;background:var(--g)" data-t="python">
+      <div><span class="num">03</span><h3>Tetris</h3><div class="d">Classic Puzzle Game · 08/2026 – 09/2026</div>
+        <p>A Tetris game implementing piece movement, rotation, collision detection, line clearing and score tracking.</p>
+        <div class="chips"><span class="chip">Python</span><span class="chip">Collision detection</span><span class="chip">Line clearing</span><span class="chip">Score tracking</span></div></div>
+      <div class="ill"><svg viewBox="0 0 240 180" stroke="#111" stroke-width="4"><rect x="14" y="14" width="212" height="152" rx="10" fill="#fff"/><g id="tt"></g></svg></div>
+    </article>
+    <article class="pc bx" style="--i:3;background:var(--y)" data-t="html css javascript">
+      <div><span class="num">04</span><h3>OfficeFlip</h3><div class="d">Office Furniture Website · 10/2026</div>
+        <p>A multi-page website for an office furniture business. Visitors can browse furniture by category, request a quote, and sell their old furniture, with an FAQ page, scroll-reveal animations, animated counters and a responsive mobile menu. Built with plain HTML, CSS and vanilla JavaScript — no frameworks.</p>
+        <div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JavaScript</span><span class="chip">Category filter</span><span class="chip">FAQ accordion</span></div></div>
+      <div class="ill"><svg viewBox="0 0 240 180"><rect x="14" y="14" width="212" height="152" rx="10" fill="#fff" stroke="#111" stroke-width="4"/><rect x="30" y="26" width="64" height="22" rx="11" fill="#52e0a1" stroke="#111" stroke-width="3"/><text x="62" y="41" text-anchor="middle" font-size="11" font-weight="900" font-family="Archivo">QUOTE</text><rect x="38" y="100" width="116" height="12" rx="3" fill="#ffd23f" stroke="#111" stroke-width="3"/><path d="M50 112V150M142 112V150" stroke="#111" stroke-width="5" stroke-linecap="round"/><rect x="74" y="58" width="44" height="32" rx="4" fill="#7d9bff" stroke="#111" stroke-width="3"/><path d="M96 90v10M84 100h24" stroke="#111" stroke-width="3" stroke-linecap="round"/><rect x="170" y="58" width="14" height="40" rx="5" fill="#ff9ccf" stroke="#111" stroke-width="3"/><rect x="164" y="98" width="40" height="12" rx="5" fill="#ff9ccf" stroke="#111" stroke-width="3"/><path d="M184 110V138M166 146H202" stroke="#111" stroke-width="4" stroke-linecap="round"/><circle cx="168" cy="152" r="4" fill="#111"/><circle cx="200" cy="152" r="4" fill="#111"/></svg></div>
+    </article>
+  </div>
+</div></section>
+
+<section id="demos" style="padding-top:40px"><div class="w">
+  <div class="sh rv"><h2>Try my projects</h2><span class="tag">▶</span></div>
+  <p class="rv" style="font-size:1.2rem;font-weight:500;max-width:62ch;margin:-14px 0 26px">Pick a project and play with a small working demo of it. Tetris is fully playable in the Playground below.</p>
+  <div class="dtabs rv" id="dt"></div>
+  <div class="dm bx rv"><div class="dbar"><span class="ddots"><i></i><i></i><i></i></span><span id="durl">officeflip</span></div><div id="dsubs"></div><div id="dbody"></div></div>
+  <p class="mono" style="margin-top:18px;font-size:.75rem;font-weight:700;text-transform:uppercase">Demo data is placeholder · nothing is saved or sent</p>
+</div></section>
+
+<section id="process" style="padding-top:50px"><div class="w">
+  <div class="sh rv"><h2>How I work</h2><span class="tag">⚙</span></div>
+  <p class="rv" style="font-size:1.2rem;font-weight:500;max-width:60ch;margin:-14px 0 30px">Think in systems. Ship in steps. Good software rarely arrives in one leap — I prefer a visible, testable process where each decision earns its place.</p>
+  <div class="prc">
+    <div class="bx rv" style="background:var(--y)"><b>01</b><h4>Frame</h4><p>Understand the real problem, its users, constraints, and the outcome worth building toward.</p></div>
+    <div class="bx rv" style="background:var(--p)"><b>02</b><h4>Model</h4><p>Map the data, states, and core logic before polishing the surface layer.</p></div>
+    <div class="bx rv" style="background:var(--g)"><b>03</b><h4>Build</h4><p>Turn the smallest complete path into working software, then test it in context.</p></div>
+    <div class="bx rv" style="background:var(--b)"><b>04</b><h4>Refine</h4><p>Reduce friction, strengthen feedback, and keep the system maintainable over time.</p></div>
+  </div>
+</div></section>
+
+<div class="tape t2" data-t="Python ✦ C ✦ C++ ✦ Java ✦ PHP ✦ JavaScript ✦ SQL ✦ MySQL ✦ Django ✦ "><div></div></div>
+
+<section id="skills"><div class="w">
+  <div class="sh rv"><h2>My toolbox</h2><span class="tag">03</span></div><p class="mono rv" style="margin:-20px 0 26px;font-weight:700">👆 Click a skill to see which project uses it</p>
+  <div class="sg">
+    <div class="sk bx rv"><h4>Languages</h4><div class="chips"><span class="chip" style="--r:-3deg;background:var(--y)">Python</span><span class="chip" style="--r:2deg;background:var(--b)">C</span><span class="chip" style="--r:-2deg;background:var(--p)">C++</span><span class="chip" style="--r:3deg;background:var(--g)">Java</span><span class="chip" style="--r:-2deg;background:var(--y)">PHP</span><span class="chip" style="--r:2deg;background:var(--b)">JavaScript</span></div></div>
+    <div class="sk bx rv"><h4>Web</h4><div class="chips"><span class="chip" style="--r:2deg;background:var(--p)">HTML</span><span class="chip" style="--r:-3deg;background:var(--g)">CSS</span><span class="chip" style="--r:3deg;background:var(--y)">Bootstrap</span><span class="chip" style="--r:-2deg;background:var(--b)">AJAX</span></div></div>
+    <div class="sk bx rv"><h4>Databases</h4><div class="chips"><span class="chip" style="--r:-2deg;background:var(--g)">SQL</span><span class="chip" style="--r:3deg;background:var(--p)">MySQL</span></div></div>
+    <div class="sk bx rv"><h4>Frameworks &amp; tools</h4><div class="chips"><span class="chip" style="--r:2deg;background:var(--y)">Django</span><span class="chip" style="--r:-3deg;background:var(--b)">XAMPP</span><span class="chip" style="--r:2deg;background:var(--p)">WAMP</span><span class="chip" style="--r:-2deg;background:var(--g)">VS Code</span></div></div>
+  </div>
+</div></section>
+
+<section id="play" style="padding-top:30px"><div class="w">
+  <div class="sh rv"><h2>Playground</h2><span class="tag">▶</span></div>
+  <div class="pl">
+    <div class="bx term rv"><div class="bar">abhishek@portfolio ~ $ ask me anything</div><pre id="to"></pre><form id="tf"><b style="color:var(--y)">$</b><input id="ti" autocomplete="off" spellcheck="false" placeholder="type help …"></form></div>
+    <div class="bx tw rv"><div class="st"><span>Score <b id="ts">0</b></span><span>Lines <b id="tl">0</b></span><span>Best <b id="tb">0</b></span></div><canvas id="tc" width="200" height="400"></canvas>
+      <div class="btns"><button class="btn y" id="tgo">▶ Play</button><button class="btn" data-k="l">◀</button><button class="btn" data-k="r">▶</button><button class="btn" data-k="u">⟳</button><button class="btn" data-k="d">▼</button><button class="btn" data-k="h">⤓</button></div>
+      <p class="mono" style="font-size:.72rem;margin-top:12px;font-weight:700">← → move · ↑ rotate · ↓ soft drop · space hard drop</p></div>
+  </div>
+</div></section>
+
+<section id="learning" style="padding-top:40px"><div class="w">
+  <div class="sh rv"><h2>Now learning</h2><span class="tag">→</span></div>
+  <div class="ln2">
+    <div class="bx rv"><div><h4>Deeper full-stack patterns</h4><p>Connecting frontend choices to reliable APIs and data storage.</p></div><span>↗</span></div>
+    <div class="bx rv"><div><h4>Better product judgment</h4><p>Learning when to simplify, what to measure, and what to leave out.</p></div><span>↗</span></div>
+    <div class="bx rv"><div><h4>Expressive interaction</h4><p>Using motion and depth to clarify — not decorate — the experience.</p></div><span>↗</span></div>
+  </div>
+</div></section>
+
+<section id="path" style="padding-top:30px"><div class="w">
+  <div class="sh rv"><h2>Level ups</h2><span class="tag">04</span></div>
+  <div class="jg">
+    <div class="lv bx rv" style="background:var(--y)"><span class="l">Lv.1 · 2021 – 2023</span><span class="sc">8.2</span><h4>Higher<br>Secondary</h4><p>Nirmala Higher Secondary School, Muvattupuzha · GPA 8.2 / 10</p></div>
+    <div class="lv bx rv" style="background:var(--p)"><span class="l">Lv.2 · 2023 – 2026</span><span class="sc">6.97</span><h4>Bachelor of<br>Computer Applications</h4><p>Santhigiri College, Vazhithala · CGPA 6.97 / 10</p></div>
+  </div>
+  <div class="ach">
+    <div class="bx rv"><span class="st">🏅</span><b>Fundamentals of Cloud Computing</b><span class="mono">upGrad · unlocked</span></div>
+    <div class="bx rv"><span class="st">🤖</span><b>Introduction to Artificial Intelligence</b><span class="mono">Simplilearn · unlocked</span></div>
+    <div class="bx rv"><span class="st">🛡️</span><b>Fundamentals of Cybersecurity</b><span class="mono">upGrad · unlocked</span></div>
+  </div>
+</div></section>
+
+<section id="resume" class="rs"><div class="w">
+  <div class="sh rv"><h2>Resume</h2><span class="tag">CV</span></div>
+  <div class="bx rv">
+    <div class="hd2"><div><h4>Abhishek D Nair</h4><p>Muvattupuzha, Kerala, India · abhishekdnair2006@gmail.com · +91 88488 32956</p><p><a href="https://www.linkedin.com/in/abhishek-d-943060373" target="_blank" rel="noopener">linkedin.com/in/abhishek-d-943060373</a></p></div><button class="btn y" onclick="window.print()">⎙ Print / save PDF</button></div>
+    <h3>Professional summary</h3><p>Motivated and detail-oriented BCA student seeking an entry-level opportunity in the IT industry. Skilled in programming, web development, database management, and system troubleshooting with hands-on project experience using Python, PHP, SQL, MySQL, HTML, CSS, and JavaScript. Quick learner with strong problem-solving, communication, and teamwork abilities, eager to contribute and grow in a professional IT environment.</p>
+    <h3>Technical expertise</h3><ul><li><b>Programming languages:</b> Python, C, C++, Java, PHP, JavaScript</li><li><b>Web technologies:</b> HTML, CSS, Bootstrap, AJAX</li><li><b>Database technologies:</b> SQL, MySQL</li><li><b>Frameworks &amp; tools:</b> Django, XAMPP, WAMP, Visual Studio Code</li></ul>
+    <h3>Academic projects</h3>
+    <div class="tp"><span>MerchCo – Digital Financial Welfare Management System</span><span>11/2025–01/2026</span></div><p>Developed a secure web-based system to manage financial welfare schemes, beneficiary records and application processes. Streamlined data management through a centralized digital platform. <i>Tech: Python, Django, HTML, CSS, JavaScript, MySQL</i></p>
+    <div class="tp"><span>Playnest – Online Park Booking System</span><span>08/2024–05/2025</span></div><p>Online park ride booking platform with reservation management, user interaction and database integration. Designed a user-friendly booking flow for efficient ride reservations and management. <i>Tech: PHP, MySQL, HTML, CSS, AJAX</i></p>
+    <div class="tp"><span>Tetris – Classic Puzzle Game</span><span>08/2026–09/2026</span></div><p>Tetris game implementing piece movement, rotation, collision detection, line clearing and score tracking. <i>Tech: Python</i></p>
+    <div class="tp"><span>OfficeFlip – Office Furniture Website</span><span>10/2026</span></div><p>Built a multi-page website for an office furniture business with category-based furniture browsing, quote requests, a sell-your-furniture form and an FAQ, plus scroll-reveal animations and a responsive mobile menu. <i>Tech: HTML, CSS, JavaScript</i></p>
+    <h3>Education</h3><ul><li><b>Bachelor of Computer Applications</b> – Santhigiri College, Vazhithala · 2023–2026 · CGPA 6.97 / 10</li><li><b>Higher Secondary Education</b> – Nirmala Higher Secondary School, Muvattupuzha · 2021–2023 · GPA 8.2 / 10</li></ul>
+    <h3>Certifications</h3><ul><li>Fundamentals of Cloud Computing – upGrad</li><li>Introduction to Artificial Intelligence – Simplilearn</li><li>Fundamentals of Cybersecurity – upGrad</li></ul>
+    <h3>Strengths &amp; languages</h3><p>Problem Solving · Team Collaboration · Analytical Thinking · Quick Learner — English | Malayalam | Hindi</p>
+  </div>
+</div></section>
+
+<section id="contact" style="padding-bottom:0"><div class="w">
+  <div class="ct bx rv">
+    <div>
+      <h2>Let's work together!</h2>
+      <p style="font-weight:700;margin:-8px 0 20px">Open to conversations about software development, internships, and interesting problems.</p>
+      <a class="mail" href="mailto:abhishekdnair2006@gmail.com">abhishekdnair2006@gmail.com ↗</a>
+      <div class="btns">
+        <a class="btn wa" id="wa1" href="https://wa.me/918848832956" target="_blank" rel="noopener">💬 WhatsApp</a>
+        <a class="btn li" href="https://www.linkedin.com/in/abhishek-d-943060373" target="_blank" rel="noopener">in LinkedIn ↗</a>
+        <a class="btn k" href="tel:+918848832956">☎ +91 88488 32956</a>
+        <button class="btn" id="cp" type="button">Copy email</button>
+      </div>
+      <p class="mono" style="margin-top:22px;font-weight:700">📍 Muvattupuzha, Kerala, India</p>
+    </div>
+    <form id="fm" novalidate>
+      <label>Your name<input id="fn" required placeholder="Jane Doe" autocomplete="name"></label>
+      <label>Your email<input id="fe" type="email" required placeholder="jane@company.com" autocomplete="email"></label>
+      <label>Message<textarea id="fmsg" required placeholder="Hi Abhishek, we'd love to chat about…"></textarea></label>
+      <div class="fs" id="fst" role="status" aria-live="polite"></div>
+      <button class="btn k" type="submit" id="fsend">Send email ➜</button>
+      <button class="btn wa" type="button" id="fwa">💬 Send on WhatsApp</button>
+    </form>
+  </div>
+</div></section>
+
+<footer><div class="w"><span>© 2026 Abhishek D Nair</span><a href="https://www.linkedin.com/in/abhishek-d-943060373" target="_blank" rel="noopener">LinkedIn ↗</a><span>Built with snacks &amp; semicolons ;</span></div></footer>
+
+<div class="pgb" id="pgb"></div>
+<div class="dock bx" style="box-shadow:4px 4px 0 var(--ink)"><i data-p="0"></i><i data-p="1"></i><i data-p="2"></i><i data-p="3"></i><button id="th" aria-label="Toggle light and dark theme">◐</button></div>
+<canvas id="cf" style="position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:95"></canvas>
+<script>
+/* ====== CONTACT SETTINGS — edit these ====== */
+const EMAIL='abhishekdnair2006@gmail.com';
+const WHATSAPP='918848832956';
+/* To receive form messages straight in your inbox: create a free form at https://formspree.io
+   (use your email above), then paste its URL here, e.g. 'https://formspree.io/f/abcdwxyz'.
+   Leave empty and the form opens the visitor's email app instead. */
+const FORM_ENDPOINT='';
+/* =========================================== */
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const escH=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});$$('.rv').forEach(e=>io.observe(e));
+// tapes
+$$('.tape').forEach(t=>t.firstElementChild.innerHTML=`<span>${t.dataset.t}</span>`.repeat(8));
+// tetris art
+const C=['#7d9bff','#ff9ccf','#ffd23f','#ff5a47','#52e0a1'],cells=[[0,5,0],[1,5,0],[2,5,0],[2,4,0],[0,4,1],[1,4,1],[0,3,1],[1,3,1],[2,3,2],[3,3,2],[3,4,2],[3,2,2],[4,5,3],[4,4,3],[4,3,3],[4,2,3],[4,1,4],[3,1,4],[2,1,4],[4,0,4],[1,2,0]];
+$('#tt').innerHTML=cells.map(([r,c,k])=>`<rect x="${42+c*28}" y="${24+r*28}" width="28" height="28" rx="4" fill="${C[k]}"/>`).join('');
+// draggable stickers
+let z=10;$$('.stk').forEach(el=>{let sx,sy,ox,oy;
+  el.addEventListener('pointerdown',e=>{el.setPointerCapture(e.pointerId);sx=e.clientX;sy=e.clientY;ox=el.offsetLeft;oy=el.offsetTop;el.style.zIndex=++z;el.classList.add('drag')});
+  el.addEventListener('pointermove',e=>{if(!el.classList.contains('drag'))return;el.style.right='auto';el.style.bottom='auto';el.style.left=ox+e.clientX-sx+'px';el.style.top=oy+e.clientY-sy+'px'});
+  ['pointerup','pointercancel'].forEach(n=>el.addEventListener(n,()=>el.classList.remove('drag')))});
+// mascot eyes + quips
+const pu=$$('.pu'),svg=$('#mas svg');
+addEventListener('pointermove',e=>{const r=svg.getBoundingClientRect(),k=r.width/300;pu.forEach(p=>{const cx=+p.dataset.cx,cy=+p.dataset.cy,ex=r.left+cx*k,ey=r.top+cy*k,a=Math.atan2(e.clientY-ey,e.clientX-ex),d=Math.min(12,Math.hypot(e.clientX-ex,e.clientY-ey)/18);p.setAttribute('cx',cx+Math.cos(a)*d);p.setAttribute('cy',cy+Math.sin(a)*d)})});
+const Q=['Hello, World!','SELECT * FROM talent;','git commit -m "hire me"','print("hi!")','It works on my machine!','404: bug not found','Drag the stickers!'];let qi=0;
+$('#mas').onclick=()=>{qi=(qi+1)%Q.length;const b=$('#bub'),n=b.cloneNode();n.textContent=Q[qi];b.replaceWith(n)};
+
+// ===== contact: email, WhatsApp, copy =====
+$('#wa1').href=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent("Hi Abhishek, I saw your portfolio.")}`;
+$('#cp').onclick=async e=>{const b=e.currentTarget;try{await navigator.clipboard.writeText(EMAIL);b.textContent='Copied ✓'}catch(_){location.href='mailto:'+EMAIL}setTimeout(()=>b.textContent='Copy email',1800)};
+const fst=(m,c)=>{const s=$('#fst');s.textContent=m;s.className='fs '+(c||'')};
+const fvals=()=>({name:$('#fn').value.trim(),email:$('#fe').value.trim(),message:$('#fmsg').value.trim()});
+const fvalid=v=>{if(!v.name||!v.email||!v.message){fst('Fill in your name, email and message first.','bad');return false}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.email)){fst('Enter a valid email address so I can reply.','bad');return false}return true};
+const viaMailto=v=>{location.href=`mailto:${EMAIL}?subject=${encodeURIComponent('Portfolio message from '+v.name)}&body=${encodeURIComponent(v.message+'\n\n— '+v.name+' ('+v.email+')')}`};
+$('#fm').onsubmit=async e=>{e.preventDefault();const v=fvals();if(!fvalid(v))return;
+  if(!FORM_ENDPOINT){fst('Opening your email app…','ok');viaMailto(v);return}
+  const b=$('#fsend');b.disabled=true;fst('Sending…');
+  try{const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json','Content-Type':'application/json'},body:JSON.stringify({name:v.name,email:v.email,message:v.message,_subject:'Portfolio message from '+v.name})});
+    if(!r.ok)throw new Error('bad status');fst('Message sent! I\'ll reply to '+v.email+' soon.','ok');$('#fm').reset();boom(innerWidth/2,innerHeight/2)}
+  catch(_){fst('Couldn\'t send it directly — opening your email app instead.','bad');viaMailto(v)}
+  b.disabled=false};
+$('#fwa').onclick=()=>{const v=fvals();if(!v.name||!v.message){fst('Add your name and message to send on WhatsApp.','bad');return}
+  fst('Opening WhatsApp…','ok');window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Hi Abhishek, I'm ${v.name}.\n${v.message}`)}`,'_blank','noopener')};
+['#fn','#fe','#fmsg'].forEach(q=>$(q).addEventListener('input',()=>fst('')));
+
+// ===== more interactivity =====
+const pgb=$('#pgb');addEventListener('scroll',()=>pgb.style.width=scrollY/(document.documentElement.scrollHeight-innerHeight)*100+'%',{passive:true});
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const el=e.target,n=+el.dataset.n;let i=0;const id=setInterval(()=>{el.textContent=++i;if(i>=n)clearInterval(id)},260);co.unobserve(el)}}),{threshold:.6});$$('[data-n]').forEach(e=>co.observe(e));
+// confetti
+const cf=$('#cf'),cx=cf.getContext('2d');let PA=[],cfon=false;const fit=()=>{cf.width=innerWidth;cf.height=innerHeight};fit();addEventListener('resize',fit);
+function boom(x,y){const cs=['#ffd23f','#ff9ccf','#7d9bff','#52e0a1','#ff5a47'];for(let i=0;i<70;i++)PA.push({x,y,vx:(Math.random()-.5)*14,vy:-Math.random()*13-3,c:cs[i%5],s:6+Math.random()*8,r:Math.random()*6,l:90});if(!cfon){cfon=true;cft()}}
+function cft(){cx.clearRect(0,0,cf.width,cf.height);PA=PA.filter(p=>p.l-->0);PA.forEach(p=>{p.vy+=.45;p.x+=p.vx;p.y+=p.vy;p.r+=.2;cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.fillRect(-p.s/2,-p.s/2,p.s,p.s);cx.restore()});if(PA.length)requestAnimationFrame(cft);else cfon=false}
+['#cp','#mas','.nav .btn'].forEach(q=>$(q).addEventListener('click',e=>boom(e.clientX,e.clientY)));
+// palette + theme
+const PL=[['#ffd23f','#ff9ccf','#7d9bff','#52e0a1','#ff5a47'],['#5ee7ff','#b6a7ff','#4d7cff','#6ff2c5','#ff7a7a'],['#ff7ab8','#ffd1e8','#9b7bff','#ffe066','#ff4d6d'],['#c9f25b','#ffb86b','#5fd4c4','#7be08a','#ff6b4a']];
+$$('.dock i').forEach(d=>{const p=PL[+d.dataset.p];d.style.background=p[0];d.onclick=e=>{['y','p','b','g','rd'].forEach((k,j)=>document.documentElement.style.setProperty('--'+k,p[j]));boom(e.clientX,e.clientY)}});
+$('#th').onclick=()=>{const d=document.documentElement,c=d.dataset.theme||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');d.dataset.theme=c==='dark'?'light':'dark'};
+// project filter (also driven by toolbox chips)
+const FT=['All','Python','PHP','MySQL','JavaScript','HTML','CSS','AJAX','Django'];
+const toast=m=>{const t=document.createElement('div');t.className='toast';t.textContent=m;document.body.appendChild(t);setTimeout(()=>t.remove(),2600)};
+function setF(t,go){const k=t.toLowerCase().replace(/\s/g,''),ms=$$('.pc').filter(c=>k==='all'||c.dataset.t.split(' ').includes(k));
+  if(!ms.length){toast(t+" isn't in a featured project yet — but it's in my toolbox!");return}
+  $$('.pc').forEach(c=>c.classList.toggle('dim',!ms.includes(c)));$$('#flt .chip').forEach(c=>c.classList.toggle('on',c.textContent.toLowerCase()===k));if(go)$('#work').scrollIntoView({behavior:'smooth'})}
+$('#flt').innerHTML=FT.map(t=>`<span class="chip">${t}</span>`).join('');$$('#flt .chip').forEach(c=>c.onclick=()=>setF(c.textContent));$$('#flt .chip')[0].classList.add('on');$$('.sk .chip').forEach(c=>c.onclick=()=>setF(c.textContent,true));
+
+// ===== project demos =====
+const dchips=a=>`<div class="chips">${a.map(c=>`<span class="chip">${c}</span>`).join('')}</div>`;
+const dpg=(h,p,c,d)=>`<div class="dpg"><div><h3>${h}</h3><p>${p}</p>${dchips(c)}</div><div class="dd">${d}</div></div>`;
+const dform=(id,btn,msg,ph)=>`<span class="dlbl">${btn} form</span><input id="${id}n" placeholder="Your name"><textarea id="${id}m" rows="2" placeholder="${ph}"></textarea><div class="derr" id="${id}e"></div><button class="dbtn" id="${id}b">${btn}</button><div class="dok" id="${id}o">${msg}</div>`;
+const OF=[
+ {k:'Home',t:'Home',d:'The landing page, with scroll-reveal animations and animated counters that tick up as you scroll.',c:['Scroll reveal','Animated counters','Shared navbar'],h:`<span class="dlbl">Animated counters</span><div class="dcnt"><div><b data-d="12">0</b><span>Stat one</span></div><div><b data-d="48">0</b><span>Stat two</span></div><div><b data-d="96">0</b><span>Stat three</span></div></div><button class="dbtn" id="drep">Replay</button>`},
+ {k:'Furniture',t:'Furniture',d:'Browse the catalogue by category. A category filter hides everything except what you picked.',c:['Browse by category','Category filter'],h:`<span class="dlbl">Category filter</span><div class="drow" id="dfs" style="gap:8px"></div><div class="dtiles" id="dtl"></div>`},
+ {k:'Sell Furniture',t:'Sell furniture',d:'Have old office furniture? Fill in the form to offer it to the business and get a confirmation message on submit.',c:['Sell form','Confirmation message'],h:dform('ds','Send offer','Thanks, we got your offer.','Describe your furniture')},
+ {k:'FAQ',t:'FAQ',d:'Common questions answered in an accordion, so the page stays short and easy to scan.',c:['Accordion','Vanilla JS'],h:`<span class="dlbl">FAQ accordion</span><details open><summary>Question one</summary><p>Placeholder answer one.</p></details><details><summary>Question two</summary><p>Placeholder answer two.</p></details><details><summary>Question three</summary><p>Placeholder answer three.</p></details>`},
+ {k:'Get a Quote',t:'Get a quote',d:'Request a quote with a short form that checks the fields and shows a confirmation message on submit.',c:['Quote form','Confirmation message'],h:dform('dq','Request quote','Thanks, your quote request is in.','What do you need?')}
+];
+let R=[{n:'Sample Applicant 1',s:'Scheme A'},{n:'Sample Applicant 2',s:'Scheme B'},{n:'Sample Applicant 3',s:'Scheme A'}],BK=[],dsel=-1,dqt=1;
+const RD=['Ride 1','Ride 2','Ride 3'],ICO=['<circle cx="18" cy="18" r="12" fill="none" stroke="#111" stroke-width="3"/><path d="M6 18h24M18 6v24" stroke="#111" stroke-width="3"/>','<path d="M4 28 Q18 -4 32 28" fill="none" stroke="#111" stroke-width="3"/><circle cx="18" cy="14" r="3" fill="#111"/>','<rect x="6" y="14" width="24" height="12" rx="4" fill="none" stroke="#111" stroke-width="3"/><circle cx="12" cy="29" r="3" fill="#111"/><circle cx="24" cy="29" r="3" fill="#111"/>'];
+const DP={
+ of:{n:'OfficeFlip',u:'officeflip',render:s=>{const p=OF[s];return dpg(p.t,p.d,p.c,p.h)}},
+ mc:{n:'MerchCo',u:'merchco / beneficiaries',render:()=>dpg('Records in one place','Instead of scattered paperwork, every beneficiary and application lives in one searchable platform. Add an applicant and watch the records update.',['Python','Django','MySQL','HTML','CSS','JavaScript'],`<div class="dmets"><div><b id="m1">0</b><span>Records</span></div><div><b id="m2">0</b><span>Scheme A</span></div><div><b id="m3">0</b><span>Scheme B</span></div></div><span class="dlbl">New application</span><div class="drow"><input id="mn" placeholder="Applicant name"><select id="ms"><option>Scheme A</option><option>Scheme B</option></select></div><div class="derr" id="me"></div><button class="dbtn" id="mb">Add application</button><span class="dlbl">Search records</span><input id="mq" placeholder="Type a name"><div class="dlist" id="ml"></div>`)},
+ pn:{n:'Playnest',u:'playnest / book a ride',render:()=>dpg('A simple booking flow','Choose, confirm, done. Reservations update on the page the way an AJAX-powered form would, with no reload.',['PHP','MySQL','HTML','CSS','AJAX'],`<span class="dlbl">1. Pick a ride</span><div class="drides" id="rd"></div><div class="drow"><div><span class="dlbl">2. Time</span><select id="pt"><option>10:00</option><option>12:00</option><option>14:00</option><option>16:00</option></select></div><div><span class="dlbl">3. Tickets</span><div class="dqty"><button id="pm" aria-label="Fewer tickets">−</button><span id="pq">1</span><button id="pp" aria-label="More tickets">+</button></div></div></div><div class="derr" id="pe"></div><button class="dbtn" id="pb">Book ride</button><span class="dlbl">My reservations</span><div class="dlist" id="pl"></div>`)},
+ tt:{n:'Tetris',u:'tetris / python',render:()=>dpg('Fully playable','The classic puzzle game with piece movement, rotation, collision detection, line clearing and score tracking. Try the playable version right on this page.',['Python','Collision detection','Line clearing','Score tracking'],`<span class="dlbl">Play it now</span><p style="font-weight:600;margin:0">The playable Tetris lives in the Playground section, next to the terminal.</p><button class="dbtn" id="dgo">Go to Playground ↓</button>`)}
+};
+let dk='of',dsb=0;
+function dcount(){$$('[data-d]').forEach(el=>{const n=+el.dataset.d;let i=0;el.textContent=0;const id=setInterval(()=>{i+=Math.max(1,Math.round(n/24));if(i>=n){i=n;clearInterval(id)}el.textContent=i},40)})}
+function mcr(){const q=($('#mq').value||'').trim().toLowerCase(),L=R.filter(r=>r.n.toLowerCase().includes(q));
+  $('#m1').textContent=R.length;$('#m2').textContent=R.filter(r=>r.s==='Scheme A').length;$('#m3').textContent=R.filter(r=>r.s==='Scheme B').length;
+  $('#ml').innerHTML=L.length?L.map(r=>`<div class="dit"><div>${escH(r.n)}<small>${r.s}</small></div><span class="dst">Received</span></div>`).join(''):'<div class="dempty">No records match that name.</div>'}
+function pnr(){$('#pl').innerHTML=BK.length?BK.map((b,i)=>`<div class="dit"><div>${b.r}<small>${b.t} · ${b.q} ticket${b.q>1?'s':''}</small></div><span><span class="dst" style="background:var(--g)">Confirmed</span> <button class="dbtn s" data-i="${i}">Cancel</button></span></div>`).join(''):'<div class="dempty">No reservations yet. Book a ride above.</div>';
+  $$('#pl .dbtn').forEach(b=>b.onclick=()=>{BK.splice(+b.dataset.i,1);pnr()})}
+function dwire(){
+  if(dk==='of'){const s=dsb;
+    if(s===0){dcount();$('#drep').onclick=dcount}
+    if(s===1){const cats=['All','Category 1','Category 2','Category 3'],cols=['var(--y)','var(--p)','var(--g)'];
+      $('#dfs').innerHTML=cats.map((c,j)=>`<button class="df${j?'':' on'}" data-c="${j}">${c}</button>`).join('');
+      $('#dtl').innerHTML=Array.from({length:6},(_,j)=>`<div class="dtile" data-c="${j%3+1}" style="background:${cols[j%3]}">Item ${j+1}</div>`).join('');
+      $$('#dfs .df').forEach(b=>b.onclick=()=>{$$('#dfs .df').forEach(x=>x.classList.toggle('on',x===b));$$('.dtile').forEach(t=>t.classList.toggle('hide',b.dataset.c!=='0'&&t.dataset.c!==b.dataset.c))})}
+    if(s===2||s===4){const id=s===2?'ds':'dq';$('#'+id+'b').onclick=()=>{const n=$('#'+id+'n').value.trim(),m=$('#'+id+'m').value.trim(),e=$('#'+id+'e'),o=$('#'+id+'o');
+      if(!n||!m){e.textContent='Fill in both fields first.';o.classList.remove('show');return}e.textContent='';o.classList.add('show')};
+      ['n','m'].forEach(x=>$('#'+id+x).oninput=()=>{$('#'+id+'e').textContent=''})}}
+  if(dk==='mc'){$('#mb').onclick=()=>{const n=$('#mn').value.trim();if(!n){$('#me').textContent='Enter the applicant name first.';return}
+      $('#me').textContent='';R.unshift({n,s:$('#ms').value});$('#mn').value='';$('#mq').value='';mcr()};
+    $('#mn').oninput=()=>$('#me').textContent='';$('#mq').oninput=mcr;mcr()}
+  if(dk==='pn'){$('#rd').innerHTML=RD.map((r,i)=>`<div class="dride${i===dsel?' on':''}" data-i="${i}"><svg viewBox="0 0 36 36">${ICO[i]}</svg>${r}</div>`).join('');
+    $('#pq').textContent=dqt;
+    $$('.dride').forEach(e=>e.onclick=()=>{dsel=+e.dataset.i;$$('.dride').forEach(x=>x.classList.toggle('on',x===e));$('#pe').textContent=''});
+    $('#pm').onclick=()=>{dqt=Math.max(1,dqt-1);$('#pq').textContent=dqt};$('#pp').onclick=()=>{dqt=Math.min(8,dqt+1);$('#pq').textContent=dqt};
+    $('#pb').onclick=()=>{if(dsel<0){$('#pe').textContent='Pick a ride first.';return}$('#pe').textContent='';BK.unshift({r:RD[dsel],t:$('#pt').value,q:dqt});pnr()};pnr()}
+  if(dk==='tt'){$('#dgo').onclick=()=>$('#play').scrollIntoView({behavior:'smooth'})}
+}
+function dshow(k,s){dk=k;dsb=s||0;
+  $$('.dtab').forEach(t=>t.classList.toggle('on',t.dataset.k===k));
+  $('#durl').textContent=DP[k].u+(k==='of'?' / '+OF[dsb].k.toLowerCase().replace(/\s/g,'-'):'');
+  $('#dsubs').innerHTML=k==='of'?`<div class="dsub">${OF.map((p,i)=>`<button class="df${i===dsb?' on':''}" data-s="${i}">${p.k}</button>`).join('')}</div>`:'';
+  $$('#dsubs .df').forEach(b=>b.onclick=()=>dshow('of',+b.dataset.s));
+  $('#dbody').innerHTML=DP[k].render(dsb);dwire()}
+$('#dt').innerHTML=Object.keys(DP).map(k=>`<button class="dtab" data-k="${k}">${DP[k].n}</button>`).join('');
+$$('.dtab').forEach(t=>t.onclick=()=>dshow(t.dataset.k));dshow('of',0);
+
+// terminal
+const TO=$('#to'),TI=$('#ti'),esc=t=>t.replace(/</g,'&lt;');
+const out=t=>{TO.innerHTML+=t+'\n';TO.scrollTop=TO.scrollHeight};
+const JK=["There are 10 kinds of people: those who get binary and those who don't.",'A SQL query walks into a bar, sees two tables and asks: "Can I join you?"','Why do programmers prefer dark mode? Because light attracts bugs.'];
+const CMD={help:()=>'Try: <b>about</b> · <b>skills</b> · <b>projects</b> · <b>education</b> · <b>certs</b> · <b>contact</b> · <b>joke</b> · <b>process</b> · <b>learning</b> · <b>resume</b> · <b>hire</b> · <b>theme</b> · <b>clear</b>',
+ about:()=>'Abhishek D Nair — CS graduate & developer from Muvattupuzha, Kerala. Motivated and detail-oriented, seeking an entry-level IT role.',
+ skills:()=>'Languages: Python, C, C++, Java, PHP, JavaScript\nWeb: HTML, CSS, Bootstrap, AJAX\nDatabases: SQL, MySQL\nTools: Django, XAMPP, WAMP, VS Code',
+ projects:()=>'1. MerchCo — financial welfare management (Python, Django, MySQL)\n2. Playnest — online park booking (PHP, MySQL, AJAX)\n3. Tetris — puzzle game (Python) → play it on the right!\n4. OfficeFlip — office furniture website (HTML, CSS, JavaScript)',
+ education:()=>'BCA — Santhigiri College, Vazhithala (2023–26), CGPA 6.97/10\nHigher Secondary — Nirmala HSS, Muvattupuzha (2021–23), GPA 8.2/10',
+ certs:()=>'• Fundamentals of Cloud Computing — upGrad\n• Introduction to Artificial Intelligence — Simplilearn\n• Fundamentals of Cybersecurity — upGrad',
+ contact:()=>'✉ abhishekdnair2006@gmail.com\n☎ +91 88488 32956\n💬 WhatsApp: wa.me/918848832956\nin LinkedIn: linkedin.com/in/abhishek-d-943060373\n📍 Muvattupuzha, Kerala, India',
+ process:()=>'1. Frame — understand the real problem\n2. Model — map the data & core logic\n3. Build — smallest complete path, then test\n4. Refine — reduce friction, keep it maintainable',
+ learning:()=>'• Deeper full-stack patterns\n• Better product judgment\n• Expressive interaction',
+ resume:()=>{setTimeout(()=>$('#resume').scrollIntoView({behavior:'smooth'}),500);return 'Opening my resume…'},
+ joke:()=>JK[Math.random()*JK.length|0],
+ hire:()=>{boom(innerWidth/2,innerHeight/2);setTimeout(()=>$('#contact').scrollIntoView({behavior:'smooth'}),700);return 'Great choice! Taking you to the contact form…'},
+ theme:()=>{$('#th').click();return 'Theme toggled.'},clear:()=>{TO.innerHTML='';return ''}};
+out('Welcome! Type <b>help</b> to see what you can ask me.');
+$('#tf').onsubmit=e=>{e.preventDefault();const c=TI.value.trim().toLowerCase();TI.value='';if(!c)return;out('<b>$</b> '+esc(c));const f=CMD[c],r=f?f():'command not found: '+esc(c)+' — try help';if(r)out(r)};
+// playable tetris
+const TC=$('#tc'),tx=TC.getContext('2d'),CO=10,RO=20,Z=20;
+const SH={I:[[1,1,1,1]],O:[[1,1],[1,1]],T:[[0,1,0],[1,1,1]],S:[[0,1,1],[1,1,0]],Z:[[1,1,0],[0,1,1]],J:[[1,0,0],[1,1,1]],L:[[0,0,1],[1,1,1]]};
+const TCOL={I:'#7d9bff',O:'#ffd23f',T:'#ff9ccf',S:'#52e0a1',Z:'#ff5a47',J:'#9b7bff',L:'#ffb347'};
+let G=Array.from({length:RO},()=>Array(CO).fill(0)),pc=null,sc=0,ln=0,run=false,over=false,paused=false,tm,best=0;
+try{best=+localStorage.getItem('tbest')||0}catch(_){}
+const col=(m,x,y)=>m.some((r,j)=>r.some((v,i)=>v&&(x+i<0||x+i>=CO||y+j>=RO||(y+j>=0&&G[y+j][x+i]))));
+function np(){const k='IOTSZJL'[Math.random()*7|0],m=SH[k].map(r=>[...r]);pc={k,m,x:(CO-m[0].length)>>1,y:0};if(col(m,pc.x,0)){run=false;over=true;$('#tgo').textContent='↻ Again';if(sc>best){best=sc;try{localStorage.setItem('tbest',best)}catch(_){}}}}
+function lock(){pc.m.forEach((r,j)=>r.forEach((v,i)=>{if(v)G[pc.y+j][pc.x+i]=pc.k}));let c=0;for(let y=RO-1;y>=0;y--)if(G[y].every(v=>v)){G.splice(y,1);G.unshift(Array(CO).fill(0));c++;y++}
+  if(c){ln+=c;sc+=[0,100,300,500,800][c]*(1+(ln/10|0));const r=TC.getBoundingClientRect();boom(r.left+r.width/2,r.top+r.height/2)}np()}
+function step(){if(!col(pc.m,pc.x,pc.y+1))pc.y++;else lock();draw()}
+function loop(){clearTimeout(tm);if(!run)return;step();tm=setTimeout(loop,Math.max(90,600-(ln/10|0)*55))}
+const mv=dx=>{if(run&&!col(pc.m,pc.x+dx,pc.y)){pc.x+=dx;draw()}};
+const rt=()=>{if(!run)return;const m=pc.m[0].map((_,i)=>pc.m.map(r=>r[i]).reverse());for(const k of [0,-1,1,-2,2])if(!col(m,pc.x+k,pc.y)){pc.m=m;pc.x+=k;break}draw()};
+const hd=()=>{if(!run)return;while(!col(pc.m,pc.x,pc.y+1))pc.y++;lock();draw()};
+function draw(){tx.clearRect(0,0,200,400);tx.strokeStyle='rgba(120,120,120,.2)';tx.lineWidth=1;for(let i=1;i<CO;i++){tx.beginPath();tx.moveTo(i*Z,0);tx.lineTo(i*Z,400);tx.stroke()}
+  const cell=(x,y,k)=>{tx.fillStyle=TCOL[k];tx.fillRect(x*Z+1,y*Z+1,Z-2,Z-2);tx.strokeStyle='#111';tx.lineWidth=2;tx.strokeRect(x*Z+1,y*Z+1,Z-2,Z-2)};
+  G.forEach((r,y)=>r.forEach((k,x)=>k&&cell(x,y,k)));if(pc&&!over)pc.m.forEach((r,j)=>r.forEach((v,i)=>v&&cell(pc.x+i,pc.y+j,pc.k)));
+  $('#ts').textContent=sc;$('#tl').textContent=ln;$('#tb').textContent=best;
+  if(!run){tx.fillStyle='rgba(17,17,17,.75)';tx.fillRect(0,150,200,100);tx.fillStyle='#ffd23f';tx.font='900 22px Archivo,sans-serif';tx.textAlign='center';tx.fillText(over?'GAME OVER':paused?'PAUSED':'PRESS PLAY',100,208)}}
+$('#tgo').onclick=()=>{if(paused){paused=false;run=true;$('#tgo').textContent='▶ Playing';loop();return}G=Array.from({length:RO},()=>Array(CO).fill(0));sc=ln=0;over=false;run=true;$('#tgo').textContent='▶ Playing';np();loop()};
+const KM={ArrowLeft:()=>mv(-1),ArrowRight:()=>mv(1),ArrowUp:rt,ArrowDown:()=>{if(run)step()},' ':hd};
+addEventListener('keydown',e=>{if(run&&KM[e.key]&&!/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)){e.preventDefault();KM[e.key]()}});
+$$('[data-k]').forEach(b=>{if(b.classList.contains('dtab'))return;b.onclick=()=>({l:()=>mv(-1),r:()=>mv(1),u:rt,d:()=>{if(run)step()},h:hd})[b.dataset.k]()});
+new IntersectionObserver(es=>{if(!es[0].isIntersecting&&run){run=false;paused=true;$('#tgo').textContent='▶ Resume';draw()}},{threshold:.1}).observe(TC);
+draw();
+</script>
+</body>
+</html>
